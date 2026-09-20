@@ -1,0 +1,8 @@
+# Configuración de Despliegue en Render (Render Blueprint)
+# Sitio Estático 100% Gratuito en Render con HTTPS y CDN Global
+services:
+  - type: web
+    name: blog-eduardo-flores
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .

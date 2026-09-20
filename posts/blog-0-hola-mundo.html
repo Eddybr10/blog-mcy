@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog #0: Hola Mundo — De la optimización de código a la trinchera de la ciberseguridad | Eduardo Flores Yépez</title>
+  <meta name="description" content="Primera entrada reflexiva de Eduardo Flores Yépez para la Maestría en Ciberseguridad (MCY) en el Tecnológico de Monterrey. Trayectoria, automatización, eCommerce y el porqué de la ciberseguridad aplicada.">
+  <meta name="author" content="Eduardo Flores Yépez">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+</head>
+<body>
+  <!-- Barra de progreso de lectura superior -->
+  <div id="reading-progress"></div>
+
+  <!-- Orbes decorativos de fondo -->
+  <div class="bg-glow-orb"></div>
+  <div class="bg-glow-orb-2"></div>
+
+  <!-- Encabezado y Navegación Principal -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="../index.html" class="logo-brand">
+        <span class="logo-badge">EF</span>
+        <span>Eduardo Flores Yépez</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="blog-0-hola-mundo.html" class="active">Blog #0</a></li>
+          <li><a href="../about.html">Sobre mí</a></li>
+          <li><a href="../entrega-pdf.html" class="btn-cta">📄 Ver Entrega Canvas</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar tema">
+          <!-- Icono inyectado por JS -->
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="article-container" id="article-content">
+      
+      <!-- Cabecera del Artículo -->
+      <header class="post-header">
+        <div class="post-breadcrumbs">
+          <a href="../index.html">Inicio</a> <span>/</span> <a href="../index.html#articulos">Publicaciones</a> <span>/</span> <span>Blog #0</span>
+        </div>
+
+        <div class="post-meta">
+          <span class="post-tag">Maestría en Ciberseguridad (MCY)</span>
+          <span class="post-tag">Tecnológico de Monterrey</span>
+          <span class="post-tag">Actividad Blog#0</span>
+        </div>
+
+        <h1 class="post-headline">
+          Blog #0: Hola Mundo — De la optimización de código a la trinchera de la ciberseguridad
+        </h1>
+
+        <div class="post-author-bar">
+          <div class="author-info-group">
+            <img src="../assets/img/eduardo-avatar.jpg" alt="Eduardo Flores Yépez" class="author-thumb">
+            <div>
+              <div class="author-name">Eduardo Flores Yépez</div>
+              <div class="author-role">Ingeniero en Computación | Estudiante MCY @ Tec de Monterrey</div>
+            </div>
+          </div>
+
+          <div style="text-align: right;">
+            <div style="font-size: 0.85rem; color: var(--text-dim); font-family: var(--font-mono);">
+              20 de septiembre de 2026
+            </div>
+            <div id="reading-time" style="font-size: 0.82rem; color: var(--accent-cyan); font-weight: 500;">
+              Calculando lectura...
+            </div>
+          </div>
+        </div>
+
+        <!-- Botón rápido para copiar enlace permalink -->
+        <div style="margin-top: -0.5rem; margin-bottom: 1.5rem; display: flex; justify-content: flex-end;">
+          <button id="copy-permalink-btn" style="background: none; border: 1px dashed var(--border-card); color: var(--text-muted); font-size: 0.82rem; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 0.4rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+            </svg>
+            Copiar enlace directo (Permalink)
+          </button>
+        </div>
+      </header>
+
+      <!-- Imagen Principal del Artículo con Atribución -->
+      <figure class="article-hero-media">
+        <img src="../assets/img/cybersecurity-hero.jpg" alt="Convergencia de ingeniería de software, arquitectura cloud y defensa cibernética">
+      </figure>
+
+      <!-- Cuadro de Atribución según lineamientos de Ken Bauer -->
+      <aside class="attribution-card">
+        <strong>Atribución de recurso visual:</strong> Obra conceptual original <em>"Digital Architecture & Defensive CyberMesh"</em>, diseñada y producida digitalmente bajo licencia <a href="https://creativecommons.org/licenses/by/4.0/deed.es" target="_blank" rel="noopener">Creative Commons Atribución 4.0 Internacional (CC BY 4.0)</a> para este blog académico. Siguiendo las directrices de atribución descritas por <a href="https://blog.kenbauer.me/2020/08/12/attribution-assignment/" target="_blank" rel="noopener">Bauer (2020)</a>, este gráfico representa la intersección entre el código de backend/frontend en plataformas de comercio electrónico y los perímetros de seguridad defensiva.
+      </aside>
+
+      <!-- Tabla de Contenido -->
+      <div class="toc-box">
+        <div class="toc-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="8" y1="6" x2="21" y2="6"></line>
+            <line x1="8" y1="12" x2="21" y2="12"></line>
+            <line x1="8" y1="18" x2="21" y2="18"></line>
+            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+          </svg>
+          Índice de la reflexión
+        </div>
+        <ol class="toc-list">
+          <li><a href="#proposito-blogging">1. El valor de escribir en público: El blog como hábito profesional</a></li>
+          <li><a href="#mi-trayectoria">2. Mi trayectoria previa: De los cables de red al corazón del comercio electrónico</a></li>
+          <li><a href="#ingenieria-datos">3. Automatización, datos y sistemas en producción: Más allá de solo "picar código"</a></li>
+          <li><a href="#el-por-que-mcy">4. El punto de inflexión: ¿Por qué la Maestría en Ciberseguridad (MCY)?</a></li>
+          <li><a href="#vision-futuro">5. Objetivos, visión y lo que busco construir en este programa</a></li>
+          <li><a href="#referencias">6. Fuentes y Referencias Consultadas</a></li>
+        </ol>
+      </div>
+
+      <!-- CUERPO PRINCIPAL DEL ARTÍCULO -->
+      <section id="proposito-blogging">
+        <h2>1. El valor de escribir en público: El blog como hábito profesional</h2>
+        <p>
+          En el mundo del desarrollo de software y de la infraestructura, existe una inercia natural a consumir información de manera voraz —documentación técnica, RFCs, foros, reportes de vulnerabilidades CVE— pero rara vez nos detenemos a sintetizar y compartir el proceso reflexivo que acompaña a cada solución que implementamos. Por eso, iniciar este espacio con una publicación formal de <strong>"Hola Mundo"</strong> no es para mí un simple trámite académico, sino una oportunidad de adoptar un hábito que los líderes de la industria consideran fundamental.
+        </p>
+        <p>
+          Al respecto, el ingeniero <a href="https://www.hanselman.com/blog/your-blog-is-the-engine-of-community" target="_blank" rel="noopener">Scott Hanselman (2012)</a> argumenta que un blog personal es el verdadero motor de la comunidad tecnológica: un espacio de soberanía digital donde las ideas maduran, se contrastan y dejan un rastro duradero que trasciende la efímera conversación de las redes sociales. Del mismo modo, el profesor <a href="https://blog.kenbauer.me/2015/04/11/why-blog/" target="_blank" rel="noopener">Ken Bauer (2015)</a> nos invita a ver el <em>blogging</em> como un ejercicio reflexivo constante: escribir para aprender, estructurar el pensamiento y construir una memoria viva de nuestro crecimiento profesional.
+        </p>
+        <blockquote>
+          <p>"Tu blog no solo documenta lo que ya dominas; documenta la curva viva de tu aprendizaje, las dudas que resolviste y los puentes que construiste entre lo que sabías ayer y lo que descubriste hoy."</p>
+        </blockquote>
+        <p>
+          Este blog nace con ese propósito exacto: acompañar mi recorrido a lo largo de la <strong>Maestría en Ciberseguridad (MCY) en el Tecnológico de Monterrey</strong>, sirviendo de bitácora abierta donde conectaré la teoría de la seguridad informática con los desafíos tangibles que enfrento día con día en entornos productivos de alta escala.
+        </p>
+      </section>
+
+      <section id="mi-trayectoria">
+        <h2>2. Mi trayectoria previa: De los cables de red al corazón del comercio electrónico</h2>
+        <p>
+          Soy <strong>Ingeniero en Computación</strong>. Desde mi etapa universitaria comprendí que la tecnología solo tiene impacto real cuando resuelve problemas concretos de personas y organizaciones. Mi formación de base estuvo fuertemente cimentada en algoritmos, estructuras de datos, arquitectura de computadoras, redes, bases de datos relacionales y desarrollo de sistemas.
+        </p>
+        <p>
+          Sin embargo, mi verdadero laboratorio de aprendizaje ha sido el terreno profesional. Mi trayectoria comenzó en las trincheras del área de soporte técnico, sistemas e infraestructura interna (Helpdesk y redes). Allí aprendí a valorar la criticidad de la continuidad operativa: lidiar con servidores locales, respaldos de información, asignación de permisos bajo el principio de menor privilegio, administración de cPanel, configuraciones DNS y resolución de incidencias en caliente. En esa etapa descubrí algo que marcaría mi carrera: <em>los procesos manuales son el caldo de cultivo perfecto para errores humanos, lentitud e incidentes de seguridad</em>.
+        </p>
+        <p>
+          Con esa convicción, mi rol evolucionó hacia el desarrollo web y la ingeniería de plataformas digitales, integrándome de lleno al equipo de tecnología de <strong>CLOE Moda</strong> en 2024. Progresivamente, asumí mayores responsabilidades hasta posicionarme como <strong>Especialista Senior de Tecnología y Optimización/UX de eCommerce</strong>.
+        </p>
+
+        <div class="callout-box">
+          <div class="callout-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 18l6-6-6-6"></path>
+              <path d="M8 6l-6 6 6 6"></path>
+            </svg>
+            El ecosistema de cloe.com.mx en producción
+          </div>
+          <p>
+            Mi trabajo central ha consistido en mantener y evolucionar la plataforma de comercio electrónico sobre arquitectura <strong>VTEX / VTEX IO</strong>, utilizando tecnologías como <strong>React, TypeScript, Node.js, GraphQL, APIs REST</strong> y servicios en la nube. Intervenir en todo el embudo transaccional (Home → PLP → PDP → Carrito → Checkout → Pasarelas de Pago) me enseñó que una plataforma de comercio electrónico no es solo una vitrina visual: es un sistema financiero y de datos altamente distribuido y sensible.
+          </p>
+        </div>
+
+        <p>
+          Uno de mis proyectos de mayor calado técnico ha sido el <strong>refactor integral y optimización del checkout</strong> de la marca. Trabajar en el flujo de pagos no tolera improvisaciones: interactuar con pasarelas de pago y métodos transaccionales como PayPal, Mercado Pago, Aplazo, Kueski, OpenPay y transferencias SPEI exige un rigor absoluto respecto a la integridad de los datos, la gestión de sesiones seguras, la prevención de fraudes y la protección de datos personales de miles de compradores diarios.
+        </p>
+      </section>
+
+      <section id="ingenieria-datos">
+        <h2>3. Automatización, datos y sistemas en producción: Más allá de solo "picar código"</h2>
+        <p>
+          Si tuviera que resumir el eje distintivo de mi perfil profesional, sería la capacidad de mirar un ecosistema empresarial complejo, detectar ineficiencias o riesgos operativos y construir software para solucionarlos de raíz.
+        </p>
+        <p>
+          A lo largo de los últimos dos años he desarrollado scripts, pipelines de datos y procesos automatizados que sustituyeron cientos de tareas manuales repetitivas en áreas de marketplaces (como Liverpool, Amazon y Mercado Libre), catálogos, sincronización de inventarios, procesamiento seguro vía SFTP y consolidación de reportes. En conjunto, estos desarrollos representan <strong>un ahorro medible superior a 2,000 horas anuales de trabajo operativo</strong> y llegaron a procesar de forma automática y desatendida más de 146,000 registros críticos en un solo proyecto.
+        </p>
+        <p>
+          Asimismo, he liderado la construcción de pipelines de integración de datos entre sistemas de CRM corporativos (WoowUp, SalesManago) utilizando <strong>SQL Server, MySQL y Azure SQL</strong>, garantizando que la información de clientes, pedidos y categorías fluya de manera íntegra y cifrada entre el ERP, el eCommerce y las herramientas de fidelización.
+        </p>
+        <p>
+          Esta experiencia me alejó de la figura del programador que únicamente atiende requerimientos aislados: me convirtió en un solucionador integral que opera bajo el ciclo continuo de <strong>Dato → Hipótesis → Arquitectura segura → Desarrollo → Medición analítica → Optimización</strong>.
+        </p>
+      </section>
+
+      <section id="el-por-que-mcy">
+        <h2>4. El punto de inflexión: ¿Por qué la Maestría en Ciberseguridad (MCY)?</h2>
+        <p>
+          Quien trabaja en comercio electrónico y sistemas en producción descubre muy pronto una verdad incómoda: <strong>el código más rápido y con la mejor experiencia de usuario es completamente inútil si no es inherentemente seguro</strong>.
+        </p>
+        <p>
+          Durante mi ejercicio profesional me enfrenté a situaciones de la vida real que cambiaron mi perspectiva. Una de las más reveladoras fue la aparición y proliferación de <strong>sitios web fraudulentos y campañas de phishing</strong> que clonaban la identidad visual de la marca para estafar a consumidores finales. Tuve que involucrarme directamente en la investigación técnica de esa infraestructura maliciosa: análisis de dominios recién registrados (DNS lookups, registros WHOIS), identificación de proveedores de hosting y servidores proxy inversos, y la ejecución coordinada de reportes de abuso, phishing y solicitudes DMCA para dar de baja los sitios.
+        </p>
+
+        <div class="callout-box security">
+          <div class="callout-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            De la contingencia reactiva a la postura defensiva estructurada
+          </div>
+          <p>
+            Esa experiencia me demostró que la seguridad no puede ser un "parche" que se agrega al final del desarrollo cuando ocurre una crisis. Los vectores de ataque modernos (ataques a cadenas de suministro de software, inyecciones en componentes frontend, credential stuffing en checkouts, fugas de llaves de API o configuraciones débiles en la nube) demandan ingenieros que comprendan la mentalidad del atacante y sepan diseñar arquitecturas resilientes.
+          </p>
+        </div>
+
+        <p>
+          Decidí cursar la <strong>Maestría en Ciberseguridad (MCY) en el Tecnológico de Monterrey</strong> porque buscaba un programa de clase mundial que me permitiera formalizar, profundizar y estructurar mis conocimientos de seguridad bajo estándares rigurosos. Quería ir más allá de los fundamentos individuales (como las certificaciones previas que cursé de IBM Cybersecurity Fundamentals o Scrum) para adentrarme en:
+        </p>
+        <ul>
+          <li><strong>Operaciones de Seguridad y Blue Team:</strong> Comprender a profundidad el funcionamiento de los Centros de Operaciones de Seguridad (SOC), la correlación de eventos con SIEM y la orquestación de respuestas mediante SOAR.</li>
+          <li><strong>Defensa de Redes y Análisis de Amenazas:</strong> Conocer los mecanismos de contención de incidentes, análisis forense, vectores de intrusión y protocolos de mitigación.</li>
+          <li><strong>Seguridad en el Ciclo de Vida del Software (DevSecOps & AppSec):</strong> Incorporar análisis de seguridad estático (SAST), dinámico (DAST) y buenas prácticas de seguridad de dependencias en pipelines de CI/CD.</li>
+          <li><strong>Gestión de Servicios de TI y Gobernanza:</strong> Vincular los marcos de referencia (ITIL, ISO 27001, NIST) con la toma de decisiones estratégicas de negocio.</li>
+        </ul>
+        <p>
+          El prestigio del Tecnológico de Monterrey, su enfoque analítico de casos reales y la comunidad de profesores y colegas que integran la maestría representaban el entorno ideal para dar este salto cualitativo.
+        </p>
+      </section>
+
+      <section id="vision-futuro">
+        <h2>5. Objetivos, visión y lo que busco construir en este programa</h2>
+        <p>
+          Mi meta a mediano y largo plazo es consolidarme en la convergencia de dos mundos que tradicionalmente han permanecido aislados: el desarrollo ágil de plataformas digitales y la ingeniería de ciberseguridad. Aspiro a desempeñarme en roles de <strong>Security Engineering, Application Security (AppSec), Cloud Security y DevSecOps</strong>, donde pueda garantizar que la innovación tecnológica no comprometa la integridad y privacidad de las personas ni la continuidad de los negocios.
+        </p>
+        <p>
+          A mis profesores y compañeros de la maestría: llego a este espacio con la disposición total de aportar mi experiencia de campo en sistemas distribuidos, APIs, eCommerce de alto tráfico y automatización de datos, y con la humildad académica de quien sabe que en ciberseguridad nunca se termina de aprender.
+        </p>
+        <p>
+          Este blog será testigo de ese viaje. En las próximas entregas abordaremos temas prácticos de laboratorio, arquitecturas de defensa, análisis de amenazas y reflexiones técnicas semanales. ¡Bienvenidos a mi espacio!
+        </p>
+      </section>
+
+      <!-- SECCIÓN DE REFERENCIAS BIBLIOGRÁFICAS (RÚBRICA DE EVALUACIÓN) -->
+      <section id="referencias" class="references-section">
+        <h3>6. Fuentes y Referencias Consultadas</h3>
+        <ol class="references-list">
+          <li>
+            Bauer, K. (2015, 11 de abril). <em>Why blog?</em> Ken Bauer's Blog. Recuperado de <a href="https://blog.kenbauer.me/2015/04/11/why-blog/" target="_blank" rel="noopener">https://blog.kenbauer.me/2015/04/11/why-blog/</a>
+          </li>
+          <li>
+            Bauer, K. (2020, 12 de agosto). <em>Find and attribute images from Flickr</em>. Ken Bauer's Blog. Recuperado de <a href="https://blog.kenbauer.me/2020/08/12/attribution-assignment/" target="_blank" rel="noopener">https://blog.kenbauer.me/2020/08/12/attribution-assignment/</a>
+          </li>
+          <li>
+            Bauer, K. (2025, 5 de septiembre). <em>Cómo hacer un blog con WordPress (actualizado)</em> [Video]. YouTube. Recuperado de <a href="https://youtu.be/HKhtpzO83HM" target="_blank" rel="noopener">https://youtu.be/HKhtpzO83HM</a>
+          </li>
+          <li>
+            Hanselman, S. (2012, 5 de enero). <em>Your blog is the engine of community</em>. Scott Hanselman's Blog. Recuperado de <a href="https://www.hanselman.com/blog/your-blog-is-the-engine-of-community" target="_blank" rel="noopener">https://www.hanselman.com/blog/your-blog-is-the-engine-of-community</a>
+          </li>
+          <li>
+            Levine, A. (2014, 23 de agosto). <em>Blogging like a Connected Courses champion</em>. Connected Courses. Recuperado de <a href="https://wayback.archive-it.org/5613/20250930033831/http://connectedcourses.net/blogging-like-a-champion/" target="_blank" rel="noopener">Internet Archive</a>
+          </li>
+          <li>
+            Tecnológico de Monterrey. (2026). <em>Programa Académico de la Maestría en Ciberseguridad (MCY): Módulo de Operaciones de Seguridad y Defensa en el Ciberespacio</em>. Escuela de Ingeniería y Ciencias.
+          </li>
+        </ol>
+      </section>
+
+      <!-- Tarjeta Biográfica del Autor al pie del post -->
+      <footer class="author-bio-card">
+        <img src="../assets/img/eduardo-avatar.jpg" alt="Eduardo Flores Yépez" class="author-bio-avatar">
+        <div class="author-bio-text">
+          <h3>Sobre Eduardo Flores Yépez</h3>
+          <p>
+            Ingeniero en Computación y estudiante de la Maestría en Ciberseguridad en el Tecnológico de Monterrey. Especialista Senior en Tecnología y Optimización para plataformas de eCommerce, con experiencia en React, TypeScript, VTEX IO, automatización de procesos (>2,000 hrs/año), integración de datos con Azure SQL y seguridad en aplicaciones web.
+          </p>
+          <div style="display: flex; gap: 1rem; font-size: 0.88rem;">
+            <a href="../about.html" style="font-weight: 600;">Ver trayectoria completa &rarr;</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" style="color: var(--text-dim);">LinkedIn</a>
+            <a href="https://github.com" target="_blank" rel="noopener" style="color: var(--text-dim);">GitHub</a>
+          </div>
+        </div>
+      </footer>
+
+    </article>
+  </main>
+
+  <!-- Pie de Página General -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div>
+        <p style="margin: 0; font-weight: 500;">Eduardo Flores Yépez &copy; <span class="current-year">2026</span></p>
+        <p style="margin: 0; font-size: 0.8rem; color: var(--text-dim);">
+          Maestría en Ciberseguridad (MCY) — Tecnológico de Monterrey
+        </p>
+      </div>
+      <ul class="footer-nav">
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="blog-0-hola-mundo.html">Blog #0</a></li>
+        <li><a href="../about.html">Sobre mí</a></li>
+        <li><a href="../entrega-pdf.html">Formato Entrega Canvas</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
