@@ -53,10 +53,10 @@ Tu liga directa será:
 https://TU-SUBDOMINIO.onrender.com/posts/blog-0-hola-mundo.html
 ```
 
-### Cómo generar tu entregable en PDF (`Actividad_Blog0_Matrícula.PDF`):
+### Cómo generar tu entregable en PDF (`Actividad_Blog0_A01797283.PDF`):
 
 1. Abre en tu navegador el archivo [entrega-pdf.html](file:///c:/Users/eddy2/Desktop/blog/entrega-pdf.html).
-2. Haz clic sobre el texto de matrícula para poner tu matrícula oficial del Tec (ej. `A01234567`).
+2. Verifica que tu matrícula oficial ya aparece asignada: `A01797283`.
 3. En el campo de URL, pega la liga directa que te dio Render (ej. `https://blog-eduardo-flores.onrender.com/posts/blog-0-hola-mundo.html`).
 4. Haz clic en el botón azul **"🖨️ Imprimir / Guardar como PDF"**.
 5. En la ventana de impresión de tu navegador:
@@ -64,7 +64,7 @@ https://TU-SUBDOMINIO.onrender.com/posts/blog-0-hola-mundo.html
    - **Márgenes:** Predeterminados o Ninguno.
    - **Gráficos de fondo:** Activado (Checked).
 6. Guarda el archivo con el nombre exacto solicitado:
-   `Actividad_Blog0_A0XXXXXXX.PDF`
+   `Actividad_Blog0_A01797283.PDF`
 7. Sube ese archivo PDF al botón **"Entregar tarea"** en Canvas.
 
 ---
