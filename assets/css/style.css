@@ -82,6 +82,9 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 body {
@@ -95,6 +98,10 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
 }
 
 /* Scroll progress bar */
@@ -387,6 +394,26 @@ blockquote p:last-child {
   font-weight: 500;
   padding: 0.35rem 0.9rem;
   border-radius: var(--radius-full);
+  margin-bottom: 1.25rem;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.post-breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
   margin-bottom: 1.25rem;
 }
 
@@ -926,12 +953,21 @@ blockquote p:last-child {
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN (MOBILE-FIRST, TABLET & DESKTOP)
    ========================================================================== */
+
+/* Prevenir overflow horizontal global en móviles */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* TABLETS Y DISPOSITIVOS MEDIANOS (<= 868px) */
 @media (max-width: 868px) {
   .hero-grid {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 2.5rem;
   }
   .hero-subtitle {
     margin-left: auto;
@@ -944,24 +980,433 @@ blockquote p:last-child {
   .featured-post-card {
     grid-template-columns: 1fr;
   }
+  .featured-img-wrap {
+    height: 220px;
+  }
+  .featured-img-wrap img {
+    height: 100%;
+    object-fit: cover;
+  }
   .author-bio-card {
     flex-direction: column;
     text-align: center;
+    gap: 1.25rem;
+    padding: 1.75rem 1.25rem;
   }
-  .nav-links {
-    gap: 1rem;
+  .author-bio-text div {
+    justify-content: center;
   }
 }
 
-@media (max-width: 600px) {
+/* SMARTPHONES Y PANTALLAS PEQUEÑAS (<= 768px) */
+@media (max-width: 768px) {
+  .bg-glow-orb, .bg-glow-orb-2 {
+    display: none !important;
+  }
+
+  .container {
+    padding: 0 1.15rem;
+    overflow-x: hidden;
+  }
+  .article-container {
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  /* Header & Navegación Móvil */
   .nav-wrapper {
     height: 60px;
+    gap: 0.5rem;
+  }
+  .logo-brand {
+    font-size: 0.95rem;
+    gap: 0.45rem;
+    flex-shrink: 0;
+  }
+  .logo-badge {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+    border-radius: 8px;
+  }
+  .nav-links {
+    gap: 0.9rem;
+  }
+  .nav-links a {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.1rem;
+    white-space: nowrap;
+  }
+  .theme-toggle-btn {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: 8px;
+  }
+
+  /* Hero en Móvil */
+  .hero-section {
+    padding: 2.75rem 0 2rem;
+  }
+  .hero-tag {
+    font-size: 0.76rem;
+    padding: 0.35rem 0.8rem;
+    white-space: normal;
+    text-align: center;
+    max-width: 100%;
+    line-height: 1.35;
+    margin: 0 auto 1.25rem;
+  }
+  .hero-title {
+    font-size: clamp(1.6rem, 6.5vw, 2.15rem);
+    line-height: 1.25;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+    word-break: break-word;
+  }
+  .hero-avatar-box {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 1rem;
+  }
+  .hero-avatar-img {
+    width: 130px;
+    height: 130px;
+  }
+  .avatar-badge-tag {
+    bottom: -8px;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.6rem;
+    white-space: nowrap;
+  }
+
+  /* Métricas en Móvil */
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+  .metric-card {
+    padding: 1.1rem 0.8rem;
+    text-align: center;
+  }
+  .metric-num {
+    font-size: 1.55rem;
+  }
+  .metric-label {
+    font-size: 0.78rem;
+    line-height: 1.35;
+  }
+
+  /* Tarjeta de Publicación Destacada */
+  .featured-content {
+    padding: 1.25rem 1rem;
+  }
+  .featured-title {
+    font-size: 1.15rem;
+    line-height: 1.35;
+    word-break: break-word;
+  }
+  .featured-excerpt {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  /* Página de Publicación (Blog #0) en Móvil */
+  .post-header {
+    padding-top: 0.5rem;
+  }
+  .post-breadcrumbs {
+    font-size: 0.78rem;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+  .post-meta {
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+  .post-tag {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.55rem;
   }
   .post-headline {
-    font-size: 2rem;
+    font-size: clamp(1.35rem, 5.8vw, 1.85rem);
+    line-height: 1.3;
+    margin: 0.75rem 0 1rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
   .post-author-bar {
     flex-direction: column;
     align-items: flex-start;
+    gap: 0.85rem;
+    padding: 0.85rem 0;
+  }
+  .author-info-group {
+    gap: 0.75rem;
+  }
+  .author-thumb {
+    width: 44px;
+    height: 44px;
+  }
+  .author-name {
+    font-size: 0.95rem;
+  }
+  .author-role {
+    font-size: 0.75rem;
+    line-height: 1.3;
+  }
+  .post-author-bar > div:last-child {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding-top: 0.6rem;
+    border-top: 1px dashed var(--border-subtle);
+  }
+  .post-author-bar > div:last-child > div {
+    font-size: 0.78rem !important;
+  }
+  #copy-permalink-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+  }
+
+  .article-hero-media img {
+    border-radius: 8px;
+    max-height: 240px;
+    object-fit: cover;
+  }
+  .attribution-card {
+    padding: 0.85rem 1rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    word-break: break-word;
+  }
+
+  .toc-box {
+    padding: 1.25rem 1rem;
+    margin: 1.75rem 0;
+  }
+  .toc-title {
+    font-size: 0.95rem;
+  }
+  .toc-list {
+    padding-left: 1.15rem;
+    font-size: 0.88rem;
+  }
+  .toc-list a {
+    word-break: break-word;
+    line-height: 1.4;
+  }
+
+  /* Tipografía y Lectura Móvil */
+  h2 {
+    font-size: clamp(1.2rem, 5vw, 1.55rem);
+    line-height: 1.35;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    word-break: break-word;
+  }
+  h3 {
+    font-size: 1.15rem;
+    line-height: 1.35;
+    word-break: break-word;
+  }
+  p {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    margin-bottom: 1.15rem;
+    word-break: break-word;
+  }
+  blockquote {
+    padding: 0.85rem 1rem;
+    margin: 1.4rem 0;
+    font-size: 0.95rem;
+    word-break: break-word;
+  }
+  .callout-box {
+    padding: 1.15rem 0.95rem;
+    margin: 1.5rem 0;
+  }
+  .callout-title {
+    font-size: 0.98rem;
+    line-height: 1.35;
+    word-break: break-word;
+  }
+
+  /* Listas y Referencias */
+  ul, ol {
+    padding-left: 1.25rem;
+    font-size: 0.95rem;
+  }
+  .references-list li {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    margin-bottom: 0.85rem;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .references-list a {
+    word-break: break-all;
+  }
+
+  /* Footer en Móvil */
+  .site-footer {
+    padding: 2.25rem 0;
+  }
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.25rem;
+  }
+  .footer-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
   }
 }
+
+/* DISPOSITIVOS ULTRA COMPACTOS (<= 560px - Celulares estándar y compactos) */
+@media (max-width: 560px) {
+  .container {
+    padding: 0 0.85rem;
+  }
+  .site-header .container {
+    padding: 0 0.75rem;
+  }
+
+  /* Header limpio y espacioso en celular: Logo badge a la izquierda, links al centro y botón de tema a la derecha */
+  .nav-wrapper {
+    height: 54px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 0.25rem;
+  }
+  .logo-brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .logo-brand span:last-child {
+    display: none;
+  }
+  .logo-badge {
+    width: 28px;
+    height: 28px;
+    font-size: 0.75rem;
+  }
+  nav {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    margin: 0 0.25rem;
+  }
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.55rem;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-links a {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.2rem 0.15rem;
+  }
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .theme-toggle-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    padding: 0;
+  }
+  .theme-toggle-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .hero-tag {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.7rem;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.35;
+    margin: 0 auto 1.25rem;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+  .post-tag {
+    font-size: 0.68rem;
+    padding: 0.2rem 0.5rem;
+    white-space: normal;
+  }
+
+  /* Botones apilados al 100% en móvil */
+  .hero-section div[style*="display: flex; gap: 1rem"] {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-section div[style*="display: flex; gap: 1rem"] a {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.92rem;
+  }
+
+  /* Métricas 1 columna en pantallas estrechas */
+  .metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+  .metric-card {
+    padding: 1rem;
+  }
+  .metric-num {
+    font-size: 1.5rem;
+  }
+
+  /* Página About Me en móvil */
+  .article-container div[style*="display: flex; gap: 2rem"] {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.25rem !important;
+  }
+  .article-container div[style*="display: flex; gap: 2rem"] img {
+    margin: 0 auto;
+    width: 110px !important;
+    height: 110px !important;
+  }
+
+  /* Código preformateado con scroll táctil suave */
+  pre {
+    padding: 1rem;
+    font-size: 0.82rem;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+
