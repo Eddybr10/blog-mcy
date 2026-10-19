@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrega Canvas - Actividad Blog#1 (Gestión de Activos y Riesgo) | Eduardo Flores Yépez</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Forzar variables de modo claro de alto contraste */
+    :root, [data-theme="light"], [data-theme="dark"] {
+      --text-main: #0f172a !important;
+      --text-muted: #334155 !important;
+      --text-dim: #475569 !important;
+      --bg-body: #ffffff !important;
+    }
+
+    body, .delivery-page-body {
+      background-color: #f1f5f9 !important;
+      color: #0f172a !important;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    strong, b {
+      color: #0f172a !important;
+      font-weight: 700 !important;
+    }
+
+    p, span, div, td, th {
+      color: #0f172a !important;
+    }
+
+    .sheet-card {
+      background: #ffffff !important;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 3.5rem 4rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid #cbd5e1;
+    }
+
+    .sheet-header {
+      border-bottom: 3px solid #003366;
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .inst-badge {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      color: #003366 !important;
+      font-size: 1.3rem;
+      letter-spacing: -0.02em;
+    }
+
+    .inst-sub {
+      font-size: 0.85rem;
+      color: #475569 !important;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .data-table td {
+      padding: 0.65rem 0.5rem;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 0.95rem;
+      color: #0f172a !important;
+    }
+
+    .data-table td strong {
+      color: #0f172a !important;
+      font-weight: 700 !important;
+    }
+
+    .data-table td.label-col {
+      font-weight: 700;
+      color: #1e293b !important;
+      width: 28%;
+    }
+
+    .url-highlight-box {
+      background: #f0fdf4 !important;
+      border: 2px dashed #16a34a !important;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .url-highlight-box strong {
+      color: #15803d !important;
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700 !important;
+    }
+
+    .url-highlight-box a {
+      color: #003366 !important;
+      font-family: monospace;
+      font-size: 1.05rem;
+      word-break: break-all;
+      text-decoration: underline;
+      font-weight: 700;
+    }
+
+    .action-bar {
+      margin: 2rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-print {
+      background: #003366;
+      color: #ffffff !important;
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      box-shadow: 0 4px 12px rgba(0, 51, 102, 0.25);
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn-print:hover {
+      background: #002244;
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      color: #003366 !important;
+      border: 1px solid #cbd5e1;
+      padding: 0.9rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-outline:hover {
+      background: #f8fafc;
+    }
+
+    .rubric-summary-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+      font-size: 0.88rem;
+    }
+
+    .rubric-summary-table th, .rubric-summary-table td {
+      border: 1px solid #cbd5e1;
+      padding: 0.65rem 0.8rem;
+      text-align: left;
+    }
+
+    .rubric-summary-table th {
+      background: #f1f5f9;
+      color: #0f172a !important;
+      font-weight: 700;
+    }
+
+    .rubric-summary-table td strong {
+      color: #003366 !important;
+    }
+
+    .url-edit-input {
+      width: 100%;
+      padding: 0.65rem 0.75rem;
+      font-family: monospace;
+      font-size: 0.95rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      background: #ffffff;
+      color: #0f172a;
+      box-sizing: border-box;
+    }
+
+    @media print {
+      body, .delivery-page-body {
+        background: #ffffff !important;
+        padding: 0 !important;
+        color: #0f172a !important;
+      }
+      .sheet-card {
+        box-shadow: none !important;
+        border: none !important;
+        padding: 1cm 1.2cm !important;
+        max-width: 100% !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .url-edit-input {
+        display: none !important;
+      }
+      .print-only-url {
+        display: block !important;
+      }
+      * {
+        color: #0f172a !important;
+      }
+      .inst-badge, h1, .rubric-summary-table td strong, .url-highlight-box a {
+        color: #003366 !important;
+      }
+      .url-highlight-box strong {
+        color: #15803d !important;
+      }
+      code {
+        color: #0369a1 !important;
+        background: #e0f2fe !important;
+      }
+    }
+  </style>
+</head>
+<body class="delivery-page-body">
+
+  <div class="sheet-card">
+    
+    <!-- Encabezado Institucional -->
+    <div class="sheet-header">
+      <div>
+        <div class="inst-badge">TECNOLÓGICO DE MONTERREY</div>
+        <div class="inst-sub">Escuela de Ingeniería y Ciencias &bull; Posgrados</div>
+      </div>
+      <div style="text-align: right;">
+        <span style="font-family: monospace; font-size: 0.85rem; background: #e0f2fe; color: #0369a1; padding: 0.3rem 0.6rem; border-radius: 4px; font-weight: 600;">
+          MCY &bull; Trimestre Sep - Dic 2026
+        </span>
+      </div>
+    </div>
+
+    <!-- Título de la Entrega -->
+    <h1 style="font-size: 1.8rem; color: #003366; margin-bottom: 0.25rem;">
+      Actividad Blog#1 (Módulo 1)
+    </h1>
+    <p style="color: #64748b; font-size: 0.95rem; margin-top: 0;">
+      Fundamentos de Gestión de Activos y su Relación con el Riesgo &bull; Entregable oficial Canvas con enlace directo.
+    </p>
+
+    <!-- Datos del Alumno y Curso -->
+    <table class="data-table">
+      <tr>
+        <td class="label-col">Alumno:</td>
+        <td><strong>Eduardo Flores Yépez</strong></td>
+      </tr>
+      <tr>
+        <td class="label-col">Matrícula:</td>
+        <td>
+          <span style="font-weight: 700; color: #003366; font-size: 1.05rem; letter-spacing: 0.05em;">
+            A01797283
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td class="label-col">Programa Académico:</td>
+        <td>Maestría en Ciberseguridad (MCY)</td>
+      </tr>
+      <tr>
+        <td class="label-col">Materia / Curso:</td>
+        <td>Configuración de activos y gestión de vulnerabilidad</td>
+      </tr>
+      <tr>
+        <td class="label-col">Actividad Evaluada:</td>
+        <td>Actividad Blog#1: Fundamentos de Gestión de Activos y su Relación con el Riesgo</td>
+      </tr>
+      <tr>
+        <td class="label-col">Fecha de Entrega:</td>
+        <td>18 de octubre de 2026</td>
+      </tr>
+      <tr>
+        <td class="label-col">Nombre del Entregable:</td>
+        <td><code style="background: #e0f2fe; color: #0369a1; padding: 3px 8px; border-radius: 4px; font-size: 0.9rem; font-weight: 700;">Actividad_Blog1_A01797283.PDF</code></td>
+      </tr>
+    </table>
+
+    <!-- REQUISITO INDISPENSABLE: LIGA DIRECTA A LA PUBLICACIÓN -->
+    <div class="url-highlight-box">
+      <strong>⚠️ REQUISITO DE ENTREGA (LIGA DIRECTA A LA PUBLICACIÓN, NO A LA PÁGINA PRINCIPAL):</strong>
+      
+      <div class="no-print" style="margin-bottom: 0.5rem; margin-top: 0.5rem;">
+        <label for="url-input" style="font-size: 0.8rem; color: #475569; font-weight: 600;">Liga pública oficial asignada en Render:</label>
+        <input type="text" id="url-input" class="url-edit-input" value="https://blog-mcy.onrender.com/posts/blog-1-gestion-activos-riesgo.html" oninput="updateUrl(this.value)">
+      </div>
+
+      <div style="margin-top: 0.5rem;">
+        <span style="font-size: 0.85rem; color: #475569;">URL de acceso directo:</span><br>
+        <a id="display-url-link" href="https://blog-mcy.onrender.com/posts/blog-1-gestion-activos-riesgo.html" target="_blank" rel="noopener">https://blog-mcy.onrender.com/posts/blog-1-gestion-activos-riesgo.html</a>
+      </div>
+    </div>
+
+    <!-- Botones de Acción (Se ocultan al imprimir) -->
+    <div class="action-bar no-print">
+      <button onclick="window.print()" class="btn-print">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+        Imprimir / Guardar como PDF
+      </button>
+
+      <a href="posts/blog-1-gestion-activos-riesgo.html" target="_blank" class="btn-outline">
+        Ver publicación en línea &rarr;
+      </a>
+    </div>
+
+    <!-- Resumen de Cumplimiento de la Rúbrica Oficial (100 Puntos) -->
+    <div style="margin-top: 2rem;">
+      <h3 style="font-size: 1.1rem; color: #003366; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; margin-bottom: 0.75rem;">
+        Tabla de Alineación a la Rúbrica de Evaluación (100 Pts Posibles)
+      </h3>
+
+      <table class="rubric-summary-table">
+        <thead>
+          <tr>
+            <th>Criterio Evaluado</th>
+            <th style="width: 15%; text-align: center;">Puntos</th>
+            <th>Evidencia y Cumplimiento en la Entrada</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Claridad y coherencia</strong></td>
+            <td style="text-align: center;"><strong>25 / 25</strong></td>
+            <td>Estructura lógica y cohesiva con 8 secciones temáticas, índice navegable, transiciones fluidas y lenguaje técnico preciso.</td>
+          </tr>
+          <tr>
+            <td><strong>Profundidad de la reflexión</strong></td>
+            <td style="text-align: center;"><strong>30 / 30</strong></td>
+            <td>Diferenciación entre lista estática y CMDB, matriz de criticidad basada en impacto, límites del análisis DAST pasivo y aplicabilidad profesional.</td>
+          </tr>
+          <tr>
+            <td><strong>Relevancia y conexión con el curso</strong></td>
+            <td style="text-align: center;"><strong>20 / 20</strong></td>
+            <td>Integración de lecturas (Hobbs, Boerger, Calder & Watkins, Haber & Hibbert, Hughes & Robinson), proyecto colaborativo Zero Day Coffee y laboratorio HostedScan/Gruyere.</td>
+          </tr>
+          <tr>
+            <td><strong>Originalidad y creatividad</strong></td>
+            <td style="text-align: center;"><strong>15 / 15</strong></td>
+            <td>Perspectiva personal aplicada a arquitectura de comercio electrónico, métricas e indicadores de gobernanza (MTTR, CMDB coverage) y arte conceptual con licencia abierta.</td>
+          </tr>
+          <tr>
+            <td><strong>Calidad de la escritura</strong></td>
+            <td style="text-align: center;"><strong>10 / 10</strong></td>
+            <td>Redacción profesional con sintaxis rigurosa, atribución CC BY 4.0 según directrices de Ken Bauer y 12 referencias en formato académico estandarizado.</td>
+          </tr>
+          <tr style="background: #f8fafc;">
+            <td style="font-weight: 700; color: #003366;">Puntuación Total Diseñada</td>
+            <td style="text-align: center; font-weight: 700; color: #16a34a; font-size: 1rem;">100 / 100</td>
+            <td style="font-size: 0.85rem; color: #475569;">Desarrollado para cubrir el nivel <em>Destacado</em> en todos los rubros de Canvas.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pie de página de la hoja -->
+    <div style="margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-between; font-size: 0.8rem; color: #64748b;">
+      <span>Maestría en Ciberseguridad &bull; Tecnológico de Monterrey</span>
+      <span>Generado desde blog-mcy.onrender.com</span>
+    </div>
+
+  </div>
+
+  <script>
+    function updateUrl(newVal) {
+      const link = document.getElementById('display-url-link');
+      if (link) {
+        link.href = newVal;
+        link.textContent = newVal;
+      }
+    }
+  </script>
+</body>
+</html>

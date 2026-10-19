@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog #1: Lo que aprendí sobre gestión de activos — Conocer la tecnología antes de intentar protegerla | Eduardo Flores Yépez</title>
+  <meta name="description" content="Reflexión académica de Eduardo Flores Yépez para la Maestría en Ciberseguridad (MCY) en el Tec de Monterrey sobre el Módulo 1: gestión de activos, CMDB, líneas base, control de cambios y análisis con HostedScan.">
+  <meta name="author" content="Eduardo Flores Yépez">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+</head>
+<body>
+  <!-- Barra de progreso de lectura superior -->
+  <div id="reading-progress"></div>
+
+  <!-- Orbes decorativos de fondo -->
+  <div class="bg-glow-orb"></div>
+  <div class="bg-glow-orb-2"></div>
+
+  <!-- Encabezado y Navegación Principal -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="../index.html" class="logo-brand">
+        <span class="logo-badge">EF</span>
+        <span>Eduardo Flores Yépez</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="blog-0-hola-mundo.html">Blog #0</a></li>
+          <li><a href="blog-1-gestion-activos-riesgo.html" class="active">Blog #1</a></li>
+          <li><a href="../about.html">Sobre mí</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar tema">
+          <!-- Icono inyectado por JS -->
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="article-container" id="article-content">
+      
+      <!-- Cabecera del Artículo -->
+      <header class="post-header">
+        <div class="post-breadcrumbs">
+          <a href="../index.html">Inicio</a> <span>/</span> <a href="../index.html#articulos">Publicaciones</a> <span>/</span> <span>Blog #1</span>
+        </div>
+
+        <div class="post-meta">
+          <span class="post-tag">Maestría en Ciberseguridad (MCY)</span>
+          <span class="post-tag">Configuración de Activos y Gestión de Vulnerabilidad</span>
+          <span class="post-tag">Actividad Blog #1</span>
+        </div>
+
+        <h1 class="post-headline">
+          Lo que aprendí sobre gestión de activos: conocer la tecnología antes de intentar protegerla
+        </h1>
+
+        <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.6; margin-top: -0.5rem; margin-bottom: 1.5rem;">
+          Reflexión personal sobre el Módulo 1: Fundamentos de Gestión de Activos y su Relación con el Riesgo. De inventarios pasivos a la toma estratégica de decisiones basada en criticidad, dependencias CMDB y trazabilidad.
+        </p>
+
+        <div class="post-author-bar">
+          <div class="author-info-group">
+            <img src="../assets/img/eduardo-avatar.jpg" alt="Eduardo Flores Yépez" class="author-thumb">
+            <div>
+              <div class="author-name">Eduardo Flores Yépez</div>
+              <div class="author-role">Ingeniero en Computación | Matrícula: A01797283 | MCY @ Tec de Monterrey</div>
+            </div>
+          </div>
+
+          <div style="text-align: right;">
+            <div style="font-size: 0.85rem; color: var(--text-dim); font-family: var(--font-mono);">
+              18 de octubre de 2026
+            </div>
+            <div id="reading-time" style="font-size: 0.82rem; color: var(--accent-cyan); font-weight: 500;">
+              Calculando lectura...
+            </div>
+          </div>
+        </div>
+
+        <!-- Botón rápido para copiar enlace permalink -->
+        <div style="margin-top: -0.5rem; margin-bottom: 1.5rem; display: flex; justify-content: flex-end;">
+          <button id="copy-permalink-btn" style="background: none; border: 1px dashed var(--border-card); color: var(--text-muted); font-size: 0.82rem; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 0.4rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+            </svg>
+            Copiar enlace directo (Permalink)
+          </button>
+        </div>
+      </header>
+
+      <!-- Imagen Principal del Artículo con Atribución -->
+      <figure class="article-hero-media">
+        <img src="../assets/img/asset-management-hero.jpg" alt="Visualización conceptual de Gestión de Activos de TI (CMDB) y Mapeo de Vulnerabilidades Cibernéticas">
+      </figure>
+
+      <!-- Cuadro de Atribución según lineamientos de Ken Bauer -->
+      <aside class="attribution-card">
+        <strong>Atribución de recurso visual:</strong> Obra conceptual original <em>"Cyber Vulnerability Mapping &amp; IT Asset Management (CMDB)"</em>, diseñada y producida digitalmente bajo licencia <a href="https://creativecommons.org/licenses/by/4.0/deed.es" target="_blank" rel="noopener">Creative Commons Atribución 4.0 Internacional (CC BY 4.0)</a> para este blog académico. Siguiendo las directrices de atribución de <a href="https://blog.kenbauer.me/2020/08/12/attribution-assignment/" target="_blank" rel="noopener">Bauer (2020)</a>, este gráfico ilustra la interacción simbiótica entre topología de red, bases de datos de configuración (CMDB), monitoreo de cambios y priorización del riesgo cibernético.
+      </aside>
+
+      <!-- Tabla de Contenido -->
+      <div class="toc-box">
+        <div class="toc-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="8" y1="6" x2="21" y2="6"></line>
+            <line x1="8" y1="12" x2="21" y2="12"></line>
+            <line x1="8" y1="18" x2="21" y2="18"></line>
+            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+          </svg>
+          Índice de la reflexión
+        </div>
+        <ol class="toc-list">
+          <li><a href="#introduccion-riesgo">1. Introducción: De administrar sistemas a entender el riesgo</a></li>
+          <li><a href="#inventario-decisiones">2. Primer aprendizaje: Un inventario debe servir para tomar decisiones</a></li>
+          <li><a href="#zero-day-coffee">3. Proyecto Zero Day Coffee: Llevar la teoría a una empresa ficticia</a></li>
+          <li><a href="#control-cambios">4. Control de cambios: La rapidez también necesita disciplina</a></li>
+          <li><a href="#activos-a-vulnerabilidades">5. De la gestión de activos a la gestión de vulnerabilidades</a></li>
+          <li><a href="#laboratorio-hostedscan">6. Laboratorio HostedScan: Interpretar es tan importante como escanear</a></li>
+          <li><a href="#aplicacion-laboral">7. Cómo aplicaría estos aprendizajes en mi trabajo</a></li>
+          <li><a href="#reflexion-final">8. Reflexión final: El activo más peligroso es el que nadie sabe que existe</a></li>
+          <li><a href="#referencias">9. Fuentes y Referencias Consultadas</a></li>
+        </ol>
+      </div>
+
+      <!-- CUERPO PRINCIPAL DEL ARTÍCULO -->
+
+      <!-- SECCIÓN 1: INTRODUCCIÓN -->
+      <section id="introduccion-riesgo">
+        <h2>1. Introducción: De administrar sistemas a entender el riesgo</h2>
+        <p>
+          En mi trabajo cotidiano como desarrollador e ingeniero enfocado en plataformas de comercio electrónico de alta demanda, estoy habituado a pensar en aplicaciones, integraciones API, bases de datos relacionales, microservicios y despliegues que deben operar con absoluta disponibilidad y velocidad. Con frecuencia, la inercia del día a día nos empuja a priorizar la extinción de incendios: resolver un fallo en pasarela de pago, liberar un parche urgente de checkout o mantener el rendimiento en picos de tráfico.
+        </p>
+        <p>
+          Sin embargo, cursar este primer módulo de la maestría me obligó a detenerme frente a una pregunta deceptivamente elemental: <strong>¿cómo podemos proteger adecuadamente una infraestructura digital si no tenemos absoluta certeza de qué activos la componen, quién es el propietario responsable de cada uno y qué procesos neurálgicos del negocio dependen de su funcionamiento?</strong>
+        </p>
+        <p>
+          Mi principal conclusión y aprendizaje fue que la gestión de activos no debe degradarse jamás a una simple lista de inventario o un archivo de Excel estático. Gestionar activos significa identificar formalmente componentes tecnológicos, clasificarlos según su criticidad para la continuidad de la operación, modelar sus interdependencias sistémicas, documentar configuraciones en líneas base auditables y erigir controles de cambio para que cada modificación no introduzca vulnerabilidades invisibles. Lo crucial no es saber qué existe físicamente, sino comprender el <strong>impacto real</strong> si un componente falla, cambia de forma inadvertida o resulta comprometido por un adversario.
+        </p>
+
+        <div class="callout-box">
+          <div class="callout-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            Conexión de Aprendizaje Integral
+          </div>
+          <p style="margin: 0; font-size: 0.93rem; color: var(--text-main);">
+            A lo largo de estas semanas conecté los marcos teóricos de las lecturas (<a href="#ref-1">Hobbs, 2011</a>; <a href="#ref-2">Boerger, 2021</a>; <a href="#ref-3">Calder &amp; Watkins, 2007</a>) con el proyecto colaborativo <strong>Zero Day Coffee</strong> y la práctica técnica de escaneo de vulnerabilidades mediante <strong>HostedScan</strong> y <strong>Google Gruyere</strong>. Esta sinergia permitió unir la planeación estratégica, la administración de configuraciones y la evaluación técnica del riesgo.
+          </p>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 2: PRIMER APRENDIZAJE -->
+      <section id="inventario-decisiones">
+        <h2>2. Primer aprendizaje: Un inventario debe servir para tomar decisiones</h2>
+        <p>
+          Una de las ideas más reveladoras del módulo fue distinguir entre tener una lista de activos y disponer de un verdadero <strong>inventario operativo útil para la seguridad</strong>. Cualquier registro superficial puede listar nombres de servidores o direcciones IP; no obstante, esa información aislada es incapaz de sustentar una evaluación de riesgo sensata. Para que un activo sea accionable, debe enriquecerse obligatoriamente con metadatos contextuales:
+        </p>
+        <ul>
+          <li><strong>Propietario / Custodio:</strong> Identidad con nombre y cargo responsable del activo y de autorizar cambios sobre él.</li>
+          <li><strong>Ubicación y Entorno:</strong> Si reside en premisa, nube pública, privada, staging o producción.</li>
+          <li><strong>Función operativa y criticidad:</strong> Nivel de impacto si sufre degradación o secuestro.</li>
+          <li><strong>Línea base de configuración:</strong> Versión de software, parches instalados, puertos abiertos y endurecimiento (hardening) aplicado.</li>
+          <li><strong>Relaciones de dependencia:</strong> Qué bases de datos, APIs o procesos de negocio consumen su salida.</li>
+        </ul>
+        <p>
+          Este principio lo contrasté directamente con las lecturas asignadas en la semana 2: el capítulo 2 de <a href="#ref-1">Hobbs (2011)</a> y los capítulos 3 y 7 de <a href="#ref-2">Boerger (2021)</a>. Más que memorizar taxonomías teóricas, mi interés radicó en contraponer el enfoque administrativo tradicional con la urgencia defensiva: <em>un inventario desactualizado o ciego ante las dependencias no solo es inútil, sino activamente peligroso</em>, pues engendra una falsa sensación de seguridad mientras deja servicios en la sombra (Shadow IT) o endpoints huérfanos a merced de atacantes.
+        </p>
+        <p>
+          Llevado a la realidad del comercio electrónico, esto es crítico: un checkout no opera en el vacío. Depende de servicios de tokenización bancaria, sistemas ERP de inventario en tiempo real, webhooks de mensajería y microservicios de analítica. Si uno de estos eslabones no está formalmente inventariado, será imposible programar su remediación preventiva o prever el impacto en cascada ante una contingencia. Un inventario no es un artefacto estático que se elabora para una auditoría; es una disciplina viva que cubre todo el ciclo de vida del activo.
+        </p>
+      </section>
+
+      <!-- SECCIÓN 3: PROYECTO ZERO DAY COFFEE -->
+      <section id="zero-day-coffee">
+        <h2>3. Proyecto Zero Day Coffee: Llevar la teoría a una empresa ficticia</h2>
+        <p>
+          La experiencia práctica más formativa del módulo fue el desarrollo colaborativo del proyecto <strong>Zero Day Coffee</strong>, una propuesta completa de gestión de activos, configuración y control de cambios para una cadena de 11 sucursales de cafeterías en la Ciudad de México. El entorno simulaba la realidad de muchas empresas en expansión: terminales de punto de venta (POS), conectividad Wi-Fi para clientes y empleados, un ERP centralizado de inventarios y una aplicación móvil de lealtad. El diagnóstico inicial revelaba falta de control centralizado, configuraciones dispares por sucursal y cambios informales sin bitácora.
+        </p>
+        <p>
+          Mi responsabilidad individual se centró en la <strong>planificación estructural del programa</strong>: delimitar el alcance, establecer objetivos medibles, asignar roles y responsabilidades (RACI), formular la matriz de criticidad, normar el uso de líneas base, definir el procedimiento operativo de cambios y trazar el cronograma de ejecución a 16 semanas.
+        </p>
+
+        <h3>Clasificar por criticidad, no tratar todo igual</h3>
+        <p>
+          Establecimos tres niveles rigurosos de criticidad. La premisa fundamental fue que <em>el valor de un activo para la seguridad no se mide por su costo financiero ni por lo sofisticado de su tecnología, sino por el impacto directo que su interrupción o compromiso genera en los ingresos, la reputación y la continuidad operativa del negocio</em>.
+        </p>
+
+        <div class="table-responsive">
+          <table class="article-table">
+            <thead>
+              <tr>
+                <th>Nivel de Criticidad</th>
+                <th>Activos Involucrados</th>
+                <th>Impacto en el Negocio</th>
+                <th>Requerimientos de Control</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="badge-severity high">Alta Criticidad</span></td>
+                <td>Terminales POS, Core Switches/Firewalls, Base de Datos ERP, API de Cobros</td>
+                <td>Paralización inmediata de ventas, fuga de datos de tarjetahabientes (PCI-DSS) o suspensión del negocio.</td>
+                <td>Líneas base estrictas, monitoreo continuo 24/7, cambios evaluados por CAB, EDR obligatorio.</td>
+              </tr>
+              <tr>
+                <td><span class="badge-severity medium">Media Criticidad</span></td>
+                <td>Laptops administrativas, servidor de reportes, portales de gestión de empleados</td>
+                <td>Retraso en tareas administrativas secundarias; existen alternativas operativas de contingencia.</td>
+                <td>Actualizaciones programadas fuera de horario hábil, respaldo semanal, aprobación por jefatura.</td>
+              </tr>
+              <tr>
+                <td><span class="badge-severity low">Baja Criticidad</span></td>
+                <td>Tabletas de menú digital, pantallas informativas de precios, impresoras auxiliares</td>
+                <td>Impacto mínimo o estético; no interrumpe el flujo transaccional.</td>
+                <td>Configuración estándar, cambios delegados al soporte local con bitácora diferida.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>La línea base como fuente de verdad y evidencia forense</h3>
+        <p>
+          Un punto angular que diseñé fue el protocolo de <strong>líneas base de configuración (Configuration Baselines)</strong>. En lugar de permitir ajustes ad-hoc en los dispositivos de red, modelamos referencias formales. Por ejemplo, para el firewall perimetral de la primera sucursal:
+        </p>
+        
+        <pre><code>// Evolución auditable de configuración en CMDB
+Activo: FW-CDMX01-001 (Firewall Perimetral Sucursal Del Valle)
+Línea Base Inicial:  LB-FW-1.0 (Hash SHA-256 verificado | Aprobado 01/Oct/2026)
+Solicitud de Cambio: CHG-2026-084 (Apertura de puerto seguro para nueva terminal POS)
+Línea Base Nueva:    LB-FW-1.1 (Autorizado por CAB | Implementado 12/Oct/2026 con Rollback validado)</code></pre>
+
+        <p>
+          Comprendí que la línea base no es solo una buena práctica técnica: es <strong>evidencia forense y resiliencia</strong>. Si se desata una falla o una intrusión tras un cambio, la línea base permite responder con certeza: <em>¿qué cambió exactamente?, ¿quién lo autorizó?, ¿cuál era la versión previa y cuál es el procedimiento de reversión comprobado?</em>
+        </p>
+
+        <h3>Dependencias en la CMDB: el riesgo cruzado</h3>
+        <p>
+          Al mapear la base de datos de gestión de configuración (CMDB), quedó patente cómo un firewall no es un objeto aislado: sostiene el túnel VPN hacia el ERP y segmenta la red de las terminales POS de la red Wi-Fi de clientes. Si un ingeniero actualiza el firmware del firewall asumiendo que solo afectará el enrutamiento general, pero la actualización rompe la negociación TLS de los datáfonos, detiene la facturación completa de la sucursal. La CMDB responde <em>qué depende de qué</em>, transformando una alerta técnica en entendimiento del negocio.
+        </p>
+
+        <div class="callout-box security">
+          <div class="callout-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            Plan de Despliegue Estructurado (16 Semanas)
+          </div>
+          <p style="margin: 0; font-size: 0.92rem; color: var(--text-main);">
+            El plan propuesto comprendió cuatro fases: <strong>Fase 1: Preparación y Gobernanza</strong> (Semanas 1–2), <strong>Fase 2: Inventario Físico/Lógico y CMDB con Snipe-IT</strong> (Semanas 3–6), <strong>Fase 3: Líneas Base y Piloto en 2 Sucursales</strong> (Semanas 7–10) y <strong>Fase 4: Despliegue General, Integración EDR y Monitoreo Continuo</strong> (Semanas 11–16). Ninguna herramienta resuelve la seguridad por sí misma; la tecnología solo rinde frutos cuando opera sobre procesos y responsabilidades claros.
+          </p>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 4: CONTROL DE CAMBIOS -->
+      <section id="control-cambios">
+        <h2>4. Control de cambios: La rapidez también necesita disciplina</h2>
+        <p>
+          En el ecosistema tecnológico actual, permeado por filosofías ágiles y continuous delivery, suele existir una resistencia cultural hacia los procesos de control de cambios, tachándolos erróneamente de «burocracia que frena la innovación». Sin embargo, las lecciones aprendidas en incidentes de producción demuestran lo contrario: la mayoría de las interrupciones críticas y brechas de seguridad no derivan de ciberataques sofisticados de día cero, sino de <strong>cambios internos no evaluados, parches mal probados o desvíos silenciosos de configuración</strong>.
+        </p>
+        <p>
+          En la propuesta de Zero Day Coffee estructuramos tres categorías operativas de cambios para balancear agilidad y rigor:
+        </p>
+        <ul>
+          <li><strong>Cambios Estándar:</strong> Tareas recurrentes, de bajísimo riesgo y procedimiento preaprobado (ej. renovación de certificados TLS con script validado o actualización menor de antivirus). No requieren sesión del CAB; se ejecutan con bitácora automatizada.</li>
+          <li><strong>Cambios Normales:</strong> Modificaciones significativas (reglas de firewall, actualización del ERP, migración de bases de datos). Sometidos a evaluación de impacto, pruebas en entorno espejo, aprobación del Comité de Cambios (CAB) y calendarización en ventana de mantenimiento.</li>
+          <li><strong>Cambios de Emergencia:</strong> Activados ante caídas de servicio o mitigación de vulnerabilidades explotadas activamente. Requieren aprobación rápida de un subcomité de emergencia (ECAB), pero demandan documentación y auditoría post-mortem obligatoria dentro de las siguientes 24 horas.</li>
+        </ul>
+        <blockquote>
+          <p>"Un cambio exitoso no es aquel que se implementó rápido y no arrojó errores inmediatos en consola. Un cambio verdaderamente exitoso preserva la seguridad del ecosistema, garantiza la continuidad del servicio y deja evidencia trazable para quien deba auditarlo o mantenerlo mañana."</p>
+        </blockquote>
+      </section>
+
+      <!-- SECCIÓN 5: DE ACTIVOS A VULNERABILIDADES -->
+      <section id="activos-a-vulnerabilidades">
+        <h2>5. De la gestión de activos a la gestión de vulnerabilidades</h2>
+        <p>
+          Las semanas subsecuentes del módulo expandieron el horizonte hacia la gestión y explotación de vulnerabilidades, a través de las lecturas fundamentales de <a href="#ref-3">Calder &amp; Watkins (2007)</a> (caps. 6, 8–10), <a href="#ref-4">Haber &amp; Hibbert (2018)</a> (caps. 2, 5, 7) y <a href="#ref-5">Hughes &amp; Robinson (2024)</a> (caps. 2, 4–6, 12).
+        </p>
+        <p>
+          El aprendizaje clave que extraje de estas obras es que <strong>una vulnerabilidad técnica (CVE) carece de significado por sí sola si no se cruza contra el contexto del activo</strong>. La ecuación del riesgo no es binaria:
+        </p>
+
+        <pre><code>Riesgo = Impacto del Activo en el Negocio  ×  Probabilidad de Explotación (Exposición / Vectores de Ataque)</code></pre>
+
+        <p>
+          Un puntaje CVSS de 8.5 en un servidor web perimetral que almacena tokens bancarios exige una respuesta de emergencia inmediata; ese mismo puntaje en una máquina virtual de pruebas aislada en una VLAN sin acceso a Internet puede gestionarse dentro del ciclo regular de parches. Por ende, la gestión de vulnerabilidades no consiste en ejecutar ciegamente herramientas para generar reportes kilométricos que abrumen al equipo, sino en priorizar de forma quirúrgica dónde intervenir para reducir el mayor volumen de riesgo residual admisible para la organización.
+        </p>
+      </section>
+
+      <!-- SECCIÓN 6: LABORATORIO HOSTEDSCAN -->
+      <section id="laboratorio-hostedscan">
+        <h2>6. Laboratorio HostedScan: Interpretar es tan importante como escanear</h2>
+        <p>
+          La oportunidad de ver esta teoría en acción ocurrió en la práctica de laboratorio utilizando la plataforma <strong>HostedScan Security</strong> sobre una instancia controlada y autorizada de <strong>Google Gruyere</strong>. Este ejercicio consistió en un análisis de seguridad dinámico pasivo (basado en el motor de <strong>OWASP ZAP</strong>), inspeccionando encabezados de respuesta HTTP, atributos de sesión y configuraciones de transporte.
+        </p>
+        <p>
+          El escaneo arrojó un total de <strong>7 hallazgos de seguridad</strong>: 2 de severidad media y 5 de severidad baja, sin registrar alertas críticas o altas:
+        </p>
+
+        <div class="table-responsive">
+          <table class="article-table">
+            <thead>
+              <tr>
+                <th>Severidad</th>
+                <th>Hallazgo Identificado</th>
+                <th>Vulnerabilidad / Mecanismo</th>
+                <th>Impacto Real y Remediación</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="badge-severity medium">Medio</span></td>
+                <td>Ausencia de Content Security Policy (CSP)</td>
+                <td>Falta de cabecera <code>Content-Security-Policy</code> en el servidor web.</td>
+                <td>Permite que scripts maliciosos inyectados por XSS descarguen recursos externos o exfiltren credenciales. Se soluciona definiendo orígenes autorizados para scripts y estilos.</td>
+              </tr>
+              <tr>
+                <td><span class="badge-severity medium">Medio</span></td>
+                <td>Falta de protección contra Clickjacking</td>
+                <td>Omisión de cabecera <code>X-Frame-Options</code> o directiva <code>frame-ancestors</code> en CSP.</td>
+                <td>Un atacante puede embeber la aplicación dentro de un <code>&lt;iframe&gt;</code> transparente y engañar a un usuario autenticado para realizar acciones involuntarias. Remediación con <code>SAMEORIGIN</code> o <code>DENY</code>.</td>
+              </tr>
+              <tr>
+                <td><span class="badge-severity low">Bajo</span></td>
+                <td>Cookie de sesión sin bandera <code>HttpOnly</code></td>
+                <td>Atributo de protección ausente en cookies sensibles.</td>
+                <td>El contenido de la cookie queda accesible para código JavaScript en el navegador, elevando el riesgo de robo de sesión mediante ataques de XSS.</td>
+              </tr>
+              <tr>
+                <td><span class="badge-severity low">Bajo</span></td>
+                <td>Cookie de sesión sin bandera <code>Secure</code></td>
+                <td>La cookie no restringe su transmisión exclusivamente a HTTPS.</td>
+                <td>Riesgo de intercepción de credenciales de sesión en texto claro si el tráfico transita por redes intermedias o Wi-Fi inseguro.</td>
+              </tr>
+              <tr>
+                <td><span class="badge-severity low">Bajo</span></td>
+                <td>Atributo <code>SameSite</code> no configurado</td>
+                <td>Falta de restricción contextual en el envío de cookies.</td>
+                <td>Facilita vectores de ataque de Cross-Site Request Forgery (CSRF). Debe configurarse con <code>Lax</code> o <code>Strict</code>.</td>
+              </tr>
+              <tr>
+                <td><span class="badge-severity low">Bajo</span></td>
+                <td>Ausencia de <code>X-Content-Type-Options</code></td>
+                <td>Falta de directiva <code>nosniff</code> en respuestas HTTP.</td>
+                <td>Los navegadores pueden interpretar erróneamente tipos MIME ejecutables como scripts, facilitando ataques de inyección MIME.</td>
+              </tr>
+              <tr>
+                <td><span class="badge-severity low">Bajo</span></td>
+                <td>HTTP Strict Transport Security (HSTS) omitido</td>
+                <td>Falta de cabecera <code>Strict-Transport-Security</code>.</td>
+                <td>Permite ataques de degradación SSL/TLS (SSL-Stripping) en solicitudes iniciales HTTP.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          Una lectura ingenua de este reporte concluiría que el sistema está relativamente seguro porque «no hay alertas rojas ni críticas». Esa conclusión sería profundamente equivocada:
+        </p>
+        <ol>
+          <li><strong>Límites del escaneo pasivo:</strong> Un escaneo DAST pasivo solo observa las respuestas del servidor sin interactuar con la lógica interna, autenticación profunda o bases de datos; no garantiza la inexistencia de fallas graves en el backend.</li>
+          <li><strong>Efecto acumulativo de fallas bajas:</strong> La conjunción de cookies sin <code>HttpOnly</code>/<code>Secure</code>, falta de HSTS y ausencia de CSP crea el escenario perfecto: un ataque XSS trivial se convierte inmediatamente en secuestro definitivo de sesión.</li>
+          <li><strong>Automatización vs. Criterio Profesional:</strong> Las herramientas de escaneo aceleran la recolección de datos, pero el juicio del profesional de ciberseguridad es el único que puede interpretar la exposición real, descartar falsos positivos y fijar el plan de remediación en función del apetito de riesgo del negocio.</li>
+        </ol>
+      </section>
+
+      <!-- SECCIÓN 7: APLICACIÓN LABORAL -->
+      <section id="aplicacion-laboral">
+        <h2>7. Cómo aplicaría estos aprendizajes en mi trabajo</h2>
+        <p>
+          La pertinencia de este módulo con mi desarrollo profesional en arquitectura y optimización de plataformas de comercio electrónico es absoluta. A partir de lo aprendido, estructuraría tres líneas de acción inmediata en mi labor técnica:
+        </p>
+        
+        <h3>1. Inventario lógico de microservicios y dependencias API</h3>
+        <p>
+          Más allá del hardware o los servidores virtuales en la nube, implementaría un inventario exhaustivo de <strong>servicios lógicos</strong>: para cada microservicio en VTEX IO o middleware de sincronización con Azure SQL, registrar formalmente el propietario responsable, qué datos transaccionales procesa (PII, tarjetas, pedidos), su nivel de criticidad y las dependencias de red de las que se alimenta.
+        </p>
+
+        <h3>2. Trazabilidad rigurosa y endurecimiento de configuraciones</h3>
+        <p>
+          Establecer líneas base explícitas para encabezados HTTP de seguridad en el CDN y en los puntos de entrada del frontend (CSP restrictiva, HSTS con preloading, SameSite estricto), de modo que ninguna modificación de código en producción pueda degradar estas cabeceras sin generar una alerta inmediata en los pipelines CI/CD.
+        </p>
+
+        <h3>3. Métricas e indicadores de gobernanza técnica</h3>
+        <p>
+          Propondría tres KPIs medibles para evaluar la madurez de nuestros activos:
+        </p>
+        <ul>
+          <li><strong>% de activos críticos cubiertos por CMDB:</strong> Meta del 100% en componentes que tocan checkout, pasarelas y catálogos.</li>
+          <li><strong>Tiempo Medio de Remediación (MTTR) de vulnerabilidades en activos de alta criticidad:</strong> Establecer SLAs estrictos según severidad contextualizada.</li>
+          <li><strong>% de cambios en producción con evidencia de pruebas y plan de rollback:</strong> Cero despliegues sin trazabilidad auditada.</li>
+        </ul>
+      </section>
+
+      <!-- SECCIÓN 8: REFLEXIÓN FINAL -->
+      <section id="reflexion-final">
+        <h2>8. Reflexión final: El activo más peligroso es el que nadie sabe que existe</h2>
+        <p>
+          Al iniciar este módulo, mi concepción de la gestión de activos estaba sesgada hacia la noción administrativa de registrar equipos para inventarios contables. Hoy concluyo con una perspectiva radicalmente distinta: <strong>la gestión de activos es el cimiento insustituible sobre el que descansa toda la arquitectura de defensa cibernética</strong>.
+        </p>
+        <p>
+          No es factible calcular el riesgo de aquello que se desconoce; no es viable mitigar una vulnerabilidad en un servicio que carece de custodio; y es imposible investigar un incidente de seguridad si no existe una línea base previa contra la cual comparar los desvíos. La seguridad de la información no comienza ejecutando un escáner automatizado ni concluye aplicando un parche de emergencia: es una cultura permanente de visibilidad sistémica, disciplina en el cambio controlado y comprensión profunda del impacto tecnológico en la supervivencia del negocio.
+        </p>
+      </section>
+
+      <!-- SECCIÓN 9: REFERENCIAS ACADÉMICAS -->
+      <section id="referencias" class="references-section">
+        <h3>9. Fuentes y Referencias Consultadas</h3>
+        <ol class="references-list">
+          <li id="ref-1">
+            Hobbs, M. (2011). <em>IT asset management: A pocket survival guide</em> (Cap. 2). IT Governance Publishing. Recuperado de <a href="https://learning.oreilly.com/library/view/it-asset-management/9781849282949/" target="_blank" rel="noopener">O'Reilly Learning</a>
+          </li>
+          <li id="ref-2">
+            Boerger, J. L. (2021). <em>Rethinking information technology asset management</em> (Caps. 3 y 7). Business Expert Press. Material académico del curso en Canvas, Tecnológico de Monterrey.
+          </li>
+          <li id="ref-3">
+            Calder, A., &amp; Watkins, S. (2007). <em>Risk assessment for asset owners</em> (Caps. 6, 8, 9 y 10). IT Governance Publishing. Recuperado de <a href="https://learning.oreilly.com/library/view/risk-assessment-for/9781849281232/" target="_blank" rel="noopener">O'Reilly Learning</a>
+          </li>
+          <li id="ref-4">
+            Haber, M. J., &amp; Hibbert, B. (2018). <em>Asset attack vectors: Building effective vulnerability management strategies to protect organizations</em> (Caps. 2, 5 y 7). Apress. <a href="https://doi.org/10.1007/978-1-4842-3628-4" target="_blank" rel="noopener">https://doi.org/10.1007/978-1-4842-3628-4</a>
+          </li>
+          <li id="ref-5">
+            Hughes, C., &amp; Robinson, N. (2024). <em>Effective vulnerability management: Managing risk in the vulnerable digital ecosystem</em> (Caps. 2, 4, 5, 6 y 12). Wiley. Recuperado de <a href="https://learning.oreilly.com/library/view/effective-vulnerability-management/9781394221202" target="_blank" rel="noopener">O'Reilly Learning</a>
+          </li>
+          <li id="ref-6">
+            Bauer, K. (2020, 12 de agosto). <em>Find and attribute images from Flickr</em>. Ken Bauer's Blog. Recuperado de <a href="https://blog.kenbauer.me/2020/08/12/attribution-assignment/" target="_blank" rel="noopener">https://blog.kenbauer.me/2020/08/12/attribution-assignment/</a>
+          </li>
+          <li id="ref-7">
+            Center for Internet Security (CIS). (2023). <em>CIS Critical Security Controls (Controls 1 &amp; 2: Inventory and Control of Enterprise and Software Assets)</em>. Recuperado de <a href="https://www.cisecurity.org/controls" target="_blank" rel="noopener">https://www.cisecurity.org/controls</a>
+          </li>
+          <li id="ref-8">
+            National Institute of Standards and Technology (NIST). (2024). <em>Cybersecurity Framework (CSF) 2.0: Asset Management (ID.AM)</em>. U.S. Department of Commerce. Recuperado de <a href="https://www.nist.gov/cyberframework" target="_blank" rel="noopener">https://www.nist.gov/cyberframework</a>
+          </li>
+          <li id="ref-9">
+            OWASP Foundation. (2021). <em>OWASP Top 10:2021 — A05:2021-Security Misconfiguration</em>. Recuperado de <a href="https://owasp.org/Top10/" target="_blank" rel="noopener">https://owasp.org/Top10/</a>
+          </li>
+          <li id="ref-10">
+            Google LLC. (2024). <em>Google Gruyere: Web Application Exploits and Defenses</em>. Recuperado de <a href="https://google-gruyere.appspot.com/" target="_blank" rel="noopener">https://google-gruyere.appspot.com/</a>
+          </li>
+          <li id="ref-11">
+            HostedScan Security. (2024). <em>HostedScan Documentation: Web Application Scanning &amp; ZAP Integrations</em>. Recuperado de <a href="https://docs.hostedscan.com/" target="_blank" rel="noopener">https://docs.hostedscan.com/</a>
+          </li>
+          <li id="ref-12">
+            Equipo de Proyecto 23. (2026). <em>Zero Day Coffee: Programa integral de gestión de activos, configuraciones y control de cambios</em>. Proyecto colaborativo de la Maestría en Ciberseguridad, Tecnológico de Monterrey. Material interno del curso.
+          </li>
+        </ol>
+      </section>
+
+      <!-- Tarjeta Biográfica del Autor al pie del post -->
+      <footer class="author-bio-card">
+        <img src="../assets/img/eduardo-avatar.jpg" alt="Eduardo Flores Yépez" class="author-bio-avatar">
+        <div class="author-bio-text">
+          <h3>Sobre Eduardo Flores Yépez</h3>
+          <p>
+            Ingeniero en Computación (Matrícula: A01797283) y estudiante de la Maestría en Ciberseguridad en el Tecnológico de Monterrey. Especialista Senior de Tecnología y Comercio Electrónico en CLOE Moda, con trayectoria en optimización de arquitecturas transaccionales, VTEX IO, pipelines de datos en Azure SQL y defensa de perímetros web (Blue Team &amp; DevSecOps).
+          </p>
+          <div style="display: flex; gap: 1rem; font-size: 0.88rem;">
+            <a href="../about.html" style="font-weight: 600;">Ver trayectoria completa &rarr;</a>
+            <a href="https://github.com/Eddybr10" target="_blank" rel="noopener" style="color: var(--text-dim);">GitHub: Eddybr10</a>
+            <a href="https://blog-mcy.onrender.com" target="_blank" rel="noopener" style="color: var(--text-dim);">Sitio en Render</a>
+          </div>
+        </div>
+      </footer>
+
+    </article>
+  </main>
+
+  <!-- Pie de Página General -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div>
+        <p style="margin: 0; font-weight: 500;">Eduardo Flores Yépez &copy; <span class="current-year">2026</span></p>
+        <p style="margin: 0; font-size: 0.8rem; color: var(--text-dim);">
+          Maestría en Ciberseguridad (MCY) — Tecnológico de Monterrey
+        </p>
+      </div>
+      <ul class="footer-nav">
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="blog-0-hola-mundo.html">Blog #0</a></li>
+        <li><a href="blog-1-gestion-activos-riesgo.html">Blog #1</a></li>
+        <li><a href="../about.html">Sobre mí</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

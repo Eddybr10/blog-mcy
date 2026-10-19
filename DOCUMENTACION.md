@@ -14,10 +14,13 @@
 | **Autor / Alumno** | Eduardo Flores Yépez |
 | **Matrícula Oficial** | **A01797283** |
 | **Programa Académico** | Maestría en Ciberseguridad (MCY) |
+| **Curso Actual** | Configuración de activos y gestión de vulnerabilidad |
 | **Repositorio GitHub** | [https://github.com/Eddybr10/blog-mcy](https://github.com/Eddybr10/blog-mcy) |
 | **Sitio en Producción** | [https://blog-mcy.onrender.com/](https://blog-mcy.onrender.com/) |
-| **Publicación Blog #0 (Evaluación)** | [https://blog-mcy.onrender.com/posts/blog-0-hola-mundo.html](https://blog-mcy.onrender.com/posts/blog-0-hola-mundo.html) |
-| **Entregable Oficial Canvas** | `Actividad_Blog0_A01797283.PDF` |
+| **Publicación Blog #1 (Nueva)** | [https://blog-mcy.onrender.com/posts/blog-1-gestion-activos-riesgo.html](https://blog-mcy.onrender.com/posts/blog-1-gestion-activos-riesgo.html) |
+| **Entregable Canvas Blog #1** | `Actividad_Blog1_A01797283.PDF` (Generador: `entrega-pdf-blog1.html`) |
+| **Publicación Blog #0 (Previa)** | [https://blog-mcy.onrender.com/posts/blog-0-hola-mundo.html](https://blog-mcy.onrender.com/posts/blog-0-hola-mundo.html) |
+| **Entregable Canvas Blog #0** | `Actividad_Blog0_A01797283.PDF` (Generador: `entrega-pdf.html`) |
 | **Hosting & Infraestructura** | Render (Static Site) con CDN global, SSL/TLS (HTTPS) automático y despliegue continuo vía Git |
 
 ---
@@ -68,33 +71,30 @@ La solución fue desarrollada bajo la filosofía de máxima velocidad, accesibil
 ```text
 blog/
 │
-├── index.html                  # Portada principal: hero de presentación, métricas clave,
-│                               # tarjeta de artículo destacado y módulos futuros del curso.
-│
-├── about.html                  # Perfil profesional extendido: evolución de puestos en CLOE,
-│                               # stack técnico categorizado y certificaciones académicas.
-│
-├── entrega-pdf.html            # Hoja de entrega académica institucional del Tec de Monterrey,
-│                               # con estilos de impresión optimizados y enlace directo.
+├── index.html                  # Portada principal: hero, métricas, tarjeta de Blog #1 y Blog #0.
+├── about.html                  # Perfil profesional extendido y trayectoria en CLOE.
+├── entrega-pdf-blog1.html      # Generador de entregable en PDF para Canvas de la Actividad Blog #1.
+├── entrega-pdf.html            # Generador de entregable en PDF para Canvas de la Actividad Blog #0.
 │
 ├── posts/
-│   └── blog-0-hola-mundo.html  # Entrada oficial evaluable del Blog #0: reflexión, trayectoria,
-│                               # caso de estudio de seguridad, citas académicas y referencias.
+│   ├── blog-1-gestion-activos-riesgo.html # Entrada oficial Blog #1: CMDB, líneas base, Zero Day Coffee,
+│   │                                       # control de cambios, HostedScan y 12 referencias APA.
+│   └── blog-0-hola-mundo.html             # Entrada oficial Blog #0: reflexión, trayectoria e introducción.
 │
 ├── assets/
 │   ├── css/
-│   │   └── style.css           # Hoja de estilos central: tokens, reset, tipografía, componentes,
-│   │                           # layout, temas claro/oscuro y reglas responsivas completas.
+│   │   └── style.css           # Estilos: Dark/Light, responsive, tablas de hallazgos, TOC, callouts.
 │   ├── js/
-│   │   └── main.js             # Lógica interactiva del cliente (modo oscuro, lectura, copy link).
+│   │   └── main.js             # Lógica cliente: Dark Mode, progress bar, contador de lectura, copy.
 │   └── img/
-│       ├── eduardo-avatar.jpg  # Fotografía de perfil del autor con temática tech/ciberseguridad.
-│       └── cybersecurity-hero.jpg # Gráfico conceptual original "Digital Architecture & Defensive CyberMesh".
+│       ├── eduardo-avatar.jpg         # Fotografía de perfil del autor.
+│       ├── asset-management-hero.jpg  # Arte conceptual original CC BY 4.0 para Blog #1.
+│       └── cybersecurity-hero.jpg     # Arte conceptual original CC BY 4.0 para Blog #0.
 │
-├── Actividad_Blog0_A01797283.PDF # Documento oficial generado listo para subir a Canvas.
-├── render.yaml                 # Archivo de configuración de infraestructura como código para Render.
-├── README.md                   # Guía rápida de despliegue y control de versiones.
-└── .gitignore                  # Exclusiones de archivos temporales para Git.
+├── Actividad_Blog0_A01797283.PDF # Documento PDF oficial generado de Blog #0.
+├── render.yaml                 # Configuración de despliegue en Render.
+├── README.md                   # Guía de ejecución local, despliegue y control de versiones.
+└── .gitignore                  # Exclusiones de Git.
 ```
 
 ---
